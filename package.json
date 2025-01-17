@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:shopping-site-angular-19": "node dist/shopping-site-angular-19/server/server.mjs"
+    "serve:ssr:shopping-site-angular-19": "node dist/shopping-site-angular-19/server/server.mjs",
+    "build:ssr:shopping-site-angular-19": "ng build && ng run shopping-site-angular-19:server"
   },
   "private": true,
   "dependencies": {
