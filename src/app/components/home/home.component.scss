@@ -1,0 +1,82 @@
+.container-carousel {
+  display: block;
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.container-carousel {
+  margin-bottom: 100px;
+}
+
+.features-img {
+  max-height: 253px;
+}
+
+.mat-mdc-card {
+  border-radius: 0;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.category-card-parent {
+  margin: 42px;
+  margin-bottom: 100px;
+}
+
+.pricing-card-parent {
+  text-align: center;
+  margin: 50px auto;
+  font-family: "Arial", sans-serif;
+}
+
+.trending-parent {
+  margin: 42px;
+  margin-bottom: 100px;
+}
+
+.parent-container {
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Base hidden state */
+.slide-left,
+.slide-right {
+  opacity: 0;
+  transform: translateX(100%); /* For slide-left */
+  transition: all 0.7s ease-in-out;
+}
+
+/* Add animation when in view */
+.slide-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-right {
+  transform: translateX(-100%); /* For slide-right */
+}
+
+.slide-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Medium screen (tablets) */
+@media screen and (max-width: 768px) {
+  .category-card-parent {
+    margin: 0px;
+  }
+}
+
+/* Small screen (mobile phones) */
+@media screen and (max-width: 480px) {
+
+  .category-card-parent {
+    margin: 0px;
+  }
+}

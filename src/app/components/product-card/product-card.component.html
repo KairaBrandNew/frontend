@@ -1,0 +1,83 @@
+<div class="product-card">
+    <div class="image-container">
+        <img src=".././../../assets/images/category-image-1.jpg" alt="T-Shirt" class="product-image" />
+        <img src=".././../../assets/images/product image 4.webp" alt="T-Shirt" class="product-image" />
+        <img src=".././../../assets/images/product image 2.webp" alt="T-Shirt" class="product-image" />
+        <img src=".././../../assets/images/product image 3.webp" alt="T-Shirt" class="product-image" />
+    </div>
+
+    <div class="product-details">
+        <h2 class="product-title">{{ product().title }}</h2>
+        <p class="product-price">Rs. {{ product().price }}.00</p>
+        <p class="price-includes">{{ product().taxesIncluded }}</p>
+
+        <div class="size-selector">
+            <p class="size-label">Size</p>
+            <div class="sizes">
+                @for(size of product().sizes; track size;) {
+                <button class="size-button" [class.selected]="size === selectedSize" (click)="selectSize(size)">
+                    {{ size }}
+                </button>
+                }
+            </div>
+        </div>
+
+        <!-- Quantity Selector -->
+        <div class="quantity-selector">
+            <button class="quantity-btn" (click)="updateQuantity(-1)">-</button>
+            <span class="quantity">{{ quantity }}</span>
+            <button class="quantity-btn" (click)="updateQuantity(1)">+</button>
+        </div>
+
+        <!-- Add to Cart -->
+        <div class="add-to-cart">
+            <button class="add-button" (click)="addToCart()">
+                Add to Cart - Rs. {{ calculateTotalPrice() }}.00
+            </button>
+            <app-cart-side-panel [isOpen]="isCartOpen" [cartItems]="cartItems"></app-cart-side-panel>
+        </div>
+
+        <div class="discount-info">
+            <p>{{ product().discountDetails }}</p>
+            <p>Use Code: <span class="discount-code">{{ product().discountCode }}</span></p>
+            <p>{{ product().extraDiscount }}</p>
+        </div>
+    </div>
+</div>
+<div class="shop-categories">
+  <h2 class="title1">You might also like</h2>
+  <div class="carousel">
+    <!-- Left Navigation -->
+    <button
+      mat-icon-button
+      class="carousel-control left"
+      (click)="scrollCarousel(-1)"
+      aria-label="Left Arrow">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+
+    <!-- Carousel Items -->
+    <div class="carousel-items" #carouselContainer>
+      @for(item of categories(); track item;) {
+        <div class="category-card" (click)="onNavigateToProductDetails()">
+          <img [src]="item.image" [alt]="item.name" class="category-image" />
+          <p class="title2">{{ item.name }}</p>
+          <div class="price-details">
+            <span class="discounted-price">Rs. {{ item.discountedPrice }}.00</span>
+            <span class="original-price">Rs. {{ item.price }}.00</span>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Right Navigation -->
+    <button
+      mat-icon-button
+      class="carousel-control right"
+      (click)="scrollCarousel(1)"
+      aria-label="Right Arrow">
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
+

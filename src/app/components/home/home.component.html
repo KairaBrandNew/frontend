@@ -1,0 +1,24 @@
+<app-welcome-section></app-welcome-section>
+<div class="parent-container">
+    <div class="category-card-parent slide-right" appScrollAnimation>
+        <app-shop-categories [categories]="topCategoryItems()"></app-shop-categories>
+    </div>
+
+    <div class="container-carousel slide-left" appScrollAnimation>
+        <app-carousel [slides]="homeCarouselSlides" [animationType]="animationType"></app-carousel>
+    </div>
+
+    <!-- <div class="container-muli-grid-carousel">
+    <app-multi-grid-carousel [slides]="slides"></app-multi-grid-carousel>
+</div> -->
+    <div class="trending-parent slide-right" appScrollAnimation>
+        <app-multi-grid-carousel [trendingItems]="trendingItems()"></app-multi-grid-carousel>
+    </div>
+
+    <div class="pricing-card-parent slide-left" appScrollAnimation>
+        <div>
+            <h2 class="title1">Top Picks</h2>
+        </div>
+        <app-pricing-card [pricingItems]="pricingItems"></app-pricing-card>
+    </div>
+</div>

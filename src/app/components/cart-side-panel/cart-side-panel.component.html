@@ -1,0 +1,37 @@
+@if(isOpen()) {
+<div class="cart-overlay" (click)="toggleCart()"></div>
+}
+<div class="cart-panel" [class.open]="isOpen()">
+    <div class="header-container-right-nav">
+        <h2 class="cart-title title1">Cart</h2>
+        <i class="material-icons close-button" (click)="toggleCart()">close</i>
+    </div>
+    <div class="cart-items-wrapper">
+        @for(item of cartItems(); track item; let i = $index) {
+        <div class="cart-items">
+            <div class="cart-item">
+                <img [src]="item.image" alt="{{ item.title }}" class="item-image" />
+                <div class="item-details">
+                    <h3 class="item-title title2">{{ item.title }}</h3>
+                    <p class="item-info">{{ item.color }} / {{ item.size }}</p>
+                    <p class="item-price title2">Rs. {{ item.price }}</p>
+                    <div class="quantity-controls">
+                        <button (click)="item.quantity = Math.max(1, item.quantity - 1)">-</button>
+                        <span>{{ item.quantity }}</span>
+                        <button (click)="item.quantity = item.quantity + 1">+</button>
+                    </div>
+                </div>
+                <i class="material-icons" (click)="removeItem(i)" style="cursor: pointer;">delete</i>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="cart-summary">
+        <p>Total: Rs. {{ totalPrice - discountedPrice}} INR</p>
+        <p>Items: Rs. {{ totalPrice }}</p>
+        <p>Buy 3 - 15%: -Rs. {{ discountedPrice}}</p>
+    </div>
+
+    <button class="checkout-button">Checkout</button>
+</div>

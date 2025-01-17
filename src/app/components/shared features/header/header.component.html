@@ -1,0 +1,80 @@
+<mat-toolbar class="top-toolbar">
+  <div class="offer-description">
+    <h3 class="offer-title">Flat 10% Off On All Products  <span class="separator">|   |</span>  <b>Use Code: RUDHVA10</b></h3>
+  </div>
+</mat-toolbar>
+<!-- <mat-toolbar>
+  <div class="logo-container">
+    <img src="../../../../assets/images/Kaira_Logo-New.png" alt="Logo" class="logo">
+    <span class="logo-label">KAIRA</span>
+  </div>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <div class="icon-text">
+      <small>Store |</small>
+    </div>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <div class="icon-text">
+      <small>Sign In</small>
+    </div>
+  </button>
+</mat-toolbar> -->
+
+<div class="parent-menu">
+  <div class="left-icon">
+    <button mat-icon-button class="example-icon" aria-label="Open menu" (click)="toggleSideMenu()">
+      @if (!isSideMenuOpen()) {
+      <mat-icon>menu</mat-icon>
+      }
+      @if (isSideMenuOpen()) {
+      <mat-icon>close</mat-icon>
+      }
+    </button>
+  </div>
+    <div class="logo-container">
+      <!-- <img src="../../../../assets/images/Kaira_Logo-New.png" alt="Logo" class="logo"> -->
+      <h3 class="logo-label">KAIRA SHOPPING</h3>
+    </div>
+    <!-- <button mat-button class="menu-text">Home</button>
+    <button mat-button [matMenuTriggerFor]="belowMenu" class="menu-text">Mens Wear</button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Formal Shirts</button>
+      <button mat-menu-item>Formal Pants</button>
+      <button mat-menu-item>Casual T Shirts</button>
+      <button mat-menu-item>Jeans Pants</button>
+    </mat-menu>
+
+    <button mat-button [matMenuTriggerFor]="beforeMenu" class="menu-text">Women's Wear</button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item>T shirt</button>
+      <button mat-menu-item>Maternity Wear</button>
+      <button mat-menu-item>Night Wear</button>
+    </mat-menu>
+    <button mat-button class="menu-text">About</button> -->
+
+  <div class="right-icons">
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" (click)="addToCart()" aria-label="Example icon-button with shopping cart icon">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div>
+  <app-cart-side-panel [isOpen]="isCartOpen" [cartItems]="cartItems"></app-cart-side-panel>
+</div>
+
+@if (isSideMenuOpen()) {
+  <app-left-nav-bar (closeNavEmit)="toggleSideMenu()"></app-left-nav-bar>
+
+}
+
+<!-- <div class="animition-type-selector">
+  @for(type of animationTypes; track type;) {
+    <div class="button" (click)="setAnimationType(type)" [class.active]="animationType === type.value">{{ type.name }}</div>
+}
+
+</div> -->

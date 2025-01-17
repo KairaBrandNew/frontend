@@ -1,0 +1,160 @@
+.explore-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 550px; /* Fixed height for the container */
+    box-sizing: border-box;
+  }
+  
+  .image-container {
+    flex: 7; /* 70% width */
+    height: 100%; /* Ensures it fills the container's height */
+    display: flex;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without gaps */
+  }
+  
+  .shop-now-button {
+    font-family: 'Lato', sans-serif; /* Match the body text font */
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .shop-now-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  /* General Styling */
+.welcome-section {
+  text-align: center;
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color: #f9f9f9;
+  padding: 0px 20px;
+  max-width: 600px; /* Center the content on wide screens */
+  margin: 0 auto;
+  height: 100%;
+  align-items: center;
+    display: flex
+;
+}
+
+.welcome-section h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #888;
+  margin: 5px 0;
+  letter-spacing: 1px;
+}
+
+.welcome-section h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 10px 0;
+  color: #000;
+}
+
+.welcome-section h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 10px 0;
+  color: #333;
+}
+
+.welcome-section p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #666;
+  margin: 15px 0;
+}
+
+.welcome-section button {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.welcome-section button:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .explore-container {
+    flex-direction: column; /* Stacks sections vertically */
+    height: auto; /* Adjusts height dynamically */
+    padding: 20px;
+    text-align: center; /* Centers text for smaller screens */
+  }
+
+  .image-container {
+    flex: none; /* Removes flex ratio */
+    height: 250px; /* Sets a smaller height for the image */
+    margin-bottom: 20px; /* Adds spacing between image and welcome section */
+  }
+
+  .image-container img {
+    height: 100%;
+    border-radius: 8px;
+  }
+
+  .welcome-section {
+    flex: none; /* Removes flex ratio */
+    padding: 20px; /* Adjusts padding for smaller screens */
+    margin: 0 auto;
+  }
+
+  .welcome-section h1 {
+    font-size: 28px;
+  }
+
+  .welcome-section h3 {
+    font-size: 20px;
+  }
+
+  .welcome-section p {
+    font-size: 14px;
+  }
+
+  .welcome-section button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-container {
+    padding: 15px;
+  }
+
+  .image-container {
+    height: 200px; /* Smaller height for very small screens */
+  }
+
+  .welcome-section h1 {
+    font-size: 24px;
+  }
+
+  .welcome-section h3 {
+    font-size: 18px;
+  }
+
+  .welcome-section p {
+    font-size: 12px;
+  }
+
+  .welcome-section button {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+}

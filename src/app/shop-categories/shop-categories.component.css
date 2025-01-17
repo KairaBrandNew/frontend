@@ -1,0 +1,146 @@
+/* shop-categories.component.css */
+.shop-categories {
+  text-align: center;
+  margin: 50px auto;
+  font-family: "Arial", sans-serif;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 90%;
+  margin: auto;
+}
+
+.carousel-items {
+  display: flex;
+  gap: 20px;
+  scroll-behavior: smooth; /* This will add smooth scrolling */
+  overflow-x: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.category-card {
+  width: 200px;
+  flex-shrink: 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.category-image {
+  width: 100%;
+  height: 83%;
+  border-radius: 32%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.category-image:hover {
+  transform: scale(1.5);
+}
+
+.category-name {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.carousel-control {
+  background-color: lightgrey;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-control.left {
+  position: relative;
+}
+
+.carousel-control:active {
+  transform: scale(0.95); /* Slight press effect */
+}
+
+.carousel-control.right {
+  position: relative;
+}
+
+.carousel-control:hover {
+  color: black;
+}
+
+.container-carousel {
+  display: block;
+  height: 500px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.carousel-items {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 20px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.carousel-items::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.price-details {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.discounted-price {
+  font-weight: bold;
+  color: #39e653;
+  margin-right: 5px;
+}
+
+/* Medium screen (tablets) */
+@media screen and (max-width: 768px) {
+  .carousel-control {
+    display: none;
+  }
+
+  .category-card {
+    width: 167px;
+  }
+  .category-card-parent {
+    margin: 0px;
+  }
+}
+
+/* Small screen (mobile phones) */
+@media screen and (max-width: 480px) {
+  .carousel-control {
+    display: none;
+  }
+  .category-card {
+    width: 167px;
+  }
+  .category-card-parent {
+    margin: 0px;
+  }
+}

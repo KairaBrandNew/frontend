@@ -1,0 +1,15 @@
+<div class="product-categories">
+    <h2 class="title1">Trending</h2>
+    <mat-grid-list class="container" cols="3" rowHeight="300px" rowColumn="400px" [gutterSize]="'10px'" style="cursor: pointer;" (click)="navigateToTrending()">
+        @for(trendingItem of trendingItems; track trendingItem;) {
+        <mat-grid-tile> <img [src]="trendingItem.imageUrl" class="image" layout-fill />
+            <div class="overlay">
+                <div class="text">{{trendingItem.title}}</div>
+            </div>
+        </mat-grid-tile>
+        }
+        <!-- <mat-grid-tile [colspan]="tiles[1].cols" [rowspan]="tiles[1].rows"><img [src]="slideItems[2].src" class="slide" layout-fill/></mat-grid-tile>
+    <mat-grid-tile [colspan]="tiles[2].cols" [rowspan]="tiles[2].rows"><img [src]="slideItems[0].src" class="slide" layout-fill/></mat-grid-tile>
+    <mat-grid-tile [colspan]="tiles[3].cols" [rowspan]="tiles[3].rows"><img [src]="slideItems[3].src" class="slide" /></mat-grid-tile> -->
+    </mat-grid-list>
+</div>

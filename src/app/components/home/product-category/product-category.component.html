@@ -1,0 +1,22 @@
+<div class="product-category-card-container">
+    @for(category of categories; track category) {
+        <mat-card class="product-category-card" appearance="outlined">
+            <div class="image-container">
+              <img [src]="category.imageUrl" mat-card-image class="product-category-img" [alt]="category.name">
+              <button 
+                mat-raised-button 
+                color="primary" 
+                class="image-button" 
+                (click)="onViewDetails(category.name)"
+              >
+               Explore
+              </button>
+            </div>
+            <mat-card-content>
+              <h2 class="category-name title2">{{ category.name }}</h2>
+            </mat-card-content>
+          </mat-card>
+    }
+
+  </div>
+  

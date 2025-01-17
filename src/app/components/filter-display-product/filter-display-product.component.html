@@ -1,0 +1,72 @@
+<div class="container">
+    <!-- Filter Button -->
+    @if(!isSidebarVisible) {
+    <button class="filter-button" (click)="toggleSidebar()">Filter</button>
+    }
+
+    <!-- Sidebar Filters -->
+    <div class="sidebar" [ngClass]="{'show': isSidebarVisible}">
+        <button class="close-button" (click)="closeSidebar()">X</button>
+
+        <h3 class="filter-side-bar-heading">All Collections</h3>
+        <div class="filter-group">
+            <label>
+                <input type="checkbox" (change)="onFilterChange('collection', 'new-arrival', $event)" />
+                New Arrival
+            </label>
+            <label>
+                <input type="checkbox" (change)="onFilterChange('collection', 'plain-shirts', $event)" />
+                Plain Shirts
+            </label>
+            <label>
+                <input type="checkbox" (change)="onFilterChange('collection', 'designer-shirts', $event)" />
+                Designer Shirts
+            </label>
+        </div>
+
+        <h3 class="filter-side-bar-heading">Size</h3>
+        <div class="filter-group">
+            <label>
+                <input type="checkbox" (change)="onFilterChange('size', 'M', $event)" />
+                Medium
+            </label>
+            <label>
+                <input type="checkbox" (change)="onFilterChange('size', 'L', $event)" />
+                Large
+            </label>
+            <label>
+                <input type="checkbox" (change)="onFilterChange('size', 'XL', $event)" />
+                Extra Large
+            </label>
+        </div>
+
+        <h3 class="filter-side-bar-heading">Price</h3>
+        <div class="filter-group">
+            <label>
+                <input type="checkbox" (change)="onFilterChange('price', 'below-1500', $event)" />
+                Below Rs. 1500
+            </label>
+            <label>
+                <input type="checkbox" (change)="onFilterChange('price', '1500-2000', $event)" />
+                Rs. 1500 - Rs. 2000
+            </label>
+        </div>
+
+        <!-- Apply Button -->
+        <button class="apply-filters-button" (click)="applyFilters(); closeSidebar()">Apply Filters</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="product-grid" [ngClass]="{'shifted': isSidebarVisible}">
+        @for(product of filteredProducts; track product;) {
+        <div class="product-card" (click)="onNavigateToProductDetail()">
+            <img [src]="product.image" [alt]="product.title" />
+            <h2 class="title2">{{ product.title }}</h2>
+            <p>
+                From Rs. {{ product.price }}
+                <span class="original-price">Rs. {{ product.originalPrice }}</span>
+            </p>
+        </div>
+        }
+    </div>
+</div>

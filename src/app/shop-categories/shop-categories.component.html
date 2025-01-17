@@ -1,0 +1,30 @@
+<!-- shop-categories.component.html -->
+<div class="shop-categories">
+    <h2 class="title1">TOP CATEGORY</h2>
+    <div class="carousel">
+        <!-- Left Navigation -->
+        <button mat-icon-button class="carousel-control left" (click)="scrollCarousel(-1); onManualCarouselClick();" aria-label="Left Arrow">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+
+        <!-- Carousel Items -->
+        <div class="carousel-items" #carouselContainer>
+            <!-- Use *ngFor for iterating over categories -->
+            @for(item of categories; track item; let index = $index) {
+            <div class="category-card" (click)="navigateToCategoryItem()">
+                <img [src]="item.imageUrl" [alt]="item.name" class="category-image" />
+                <p class="title2">{{ item.category }}</p>
+                <!-- <div class="price-details">
+                  <span class="discounted-price">Rs. {{ item.discountedPrice }}.00</span>
+                  <span class="original-price">Rs. {{ item.price }}.00</span>
+                </div> -->
+            </div>
+            }
+        </div>
+
+        <!-- Right Navigation -->
+        <button mat-icon-button class="carousel-control right" (click)="scrollCarousel(1); onManualCarouselClick()" aria-label="Right Arrow">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</div>

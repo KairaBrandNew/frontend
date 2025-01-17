@@ -1,0 +1,38 @@
+<div class="nav-container">
+    <div class="header-container-left-nav">
+        <div class="shop-title">Rudhva Fashion's Hub</div>
+        <button mat-icon-button class="close-btn" (click)="closeNav()" aria-label="Close Navigation">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+    <mat-accordion>
+        @for(item of menuItems(); track item) {
+        @if(item.children.length > 0) {
+        <mat-expansion-panel>
+            <!-- Menu item with children (accordion) -->
+            <mat-expansion-panel-header>
+                {{ item.label }}
+            </mat-expansion-panel-header>
+            <div class="submenu">
+                @for(child of item.children; track child) {
+                <mat-expansion-panel hideToggle disabled class="sub-menu-panel">
+                    <mat-expansion-panel-header>
+                        <a [href]="child.link" class="submenu-link">{{ child.label }}</a>
+                    </mat-expansion-panel-header>
+                </mat-expansion-panel>
+                <!-- <a [href]="child.link" class="submenu-link">{{ child.label }}</a> -->
+                }
+            </div>
+        </mat-expansion-panel>
+        }
+        <!-- Menu item without children -->
+        @if(item.children.length === 0) {
+        <mat-expansion-panel hideToggle disabled>
+            <mat-expansion-panel-header>
+                <a [href]="item.link" class="menu-link">{{ item.label }}</a>
+            </mat-expansion-panel-header>
+        </mat-expansion-panel>
+        }
+        }
+    </mat-accordion>
+</div>
