@@ -9,7 +9,7 @@ import { CartItem } from '../cart-side-panel/cart-side-panel.component';
 })
 export class HomeService {
   // Change this to your Node.js API endpoint
-  private apiUrl = 'http://localhost:8080/api/home/trending_items';
+  private apiUrl = 'https://backend-kaira.onrender.com/api/home/trending_items';
   public dataSignal = signal<any[]>([]);
   
 
