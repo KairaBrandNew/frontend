@@ -1,5 +1,5 @@
 <div class="product-categories">
-    <h2 class="title1">Trending</h2>
+    <h2 class="title1">Trending</h2> {{trendingItems().length}}
     <mat-grid-list class="container" cols="3" rowHeight="300px" rowColumn="400px" [gutterSize]="'10px'" style="cursor: pointer;" (click)="navigateToTrending()">
         @for(trendingItem of trendingItems(); track trendingItem;) {
         <mat-grid-tile> <img [src]="trendingItem.imageUrl" class="image" layout-fill />
