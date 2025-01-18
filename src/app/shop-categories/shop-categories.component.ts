@@ -13,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class ShopCategoriesComponent {
   @ViewChild('carouselContainer', { static: true }) carouselContainer!: ElementRef;
-  @Input('categories') categories!: any;
+  @Input() categories = signal<any[]>([]);
+  topCategoryItems = signal<any[]>([]);
+
   
 
   intervalId!: NodeJS.Timeout;

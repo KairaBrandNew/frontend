@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {  } from '../../shared features/header/header.component';
 import { ItemSlideModel } from '../../../models/home.model';
@@ -19,8 +19,7 @@ export interface Tile {
 })
 export class MultiGridCarouselComponent {
     constructor(private router: Router) {}
-  
-  @Input() trendingItems!: ItemSlideModel[];
+    @Input() trendingItems = signal<ItemSlideModel[]>([]);
 
   tiles: Tile[] = [
     {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
