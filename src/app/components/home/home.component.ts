@@ -45,7 +45,7 @@ export class HomeComponent {
       console.log('onInuit');
       console.log(this.homeService.dataSignal());
       this.filterItems()  
-    }, 5000);
+    }, 0);
   }
 
   filterItems() {
