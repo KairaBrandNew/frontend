@@ -34,11 +34,11 @@ export class HomeComponent {
   
 
   constructor(private homeService: HomeService) {
-    this.productItems = this.homeService.dataSignal;
   }
 
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
+    this.productItems = this.homeService.dataSignal;
     this.homeService.fetchTrendingItems();
     this.filterItems()
   }
