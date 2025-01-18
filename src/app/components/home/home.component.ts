@@ -44,7 +44,7 @@ export class HomeComponent {
     setTimeout(() => {
       console.log(this.homeService.dataSignal());
       this.filterItems()  
-    }, 5000);
+    }, 0);
   }
 
   filterItems() {
