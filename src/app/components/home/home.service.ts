@@ -10,8 +10,8 @@ import { CartItem } from '../cart-side-panel/cart-side-panel.component';
 export class HomeService {
   // Change this to your Node.js API endpoint
   private apiUrl = 'https://backend-kaira.onrender.com/api/home/trending_items';
-  public dataSignal = signal<any[]>([]);
-  
+  // public dataSignal = signal<any[]>([]);  // TO:DO - Important
+  dataClothingItem = [];
 
   constructor(private http: HttpClient) {}
 
@@ -23,7 +23,8 @@ export class HomeService {
         return of([]); // Return an empty array if there's an error
       })
     ).subscribe(trending_item => {
-      this.dataSignal.set(trending_item[0].data); // Update the signal with the fetched data
+      // this.dataSignal.set(trending_item[0].data); // Update the signal with the fetched data
+      this.dataClothingItem = trending_item[0].data;
     });
   }
 }
