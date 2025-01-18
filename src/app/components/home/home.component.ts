@@ -45,8 +45,11 @@ export class HomeComponent {
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
+    console.log("******", this.productItems())
     this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem));
     this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
+    console.log("********", this.trendingItems())
+    console.log("********", this.topCategoryItems())
   }
 
 
