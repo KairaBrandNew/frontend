@@ -41,8 +41,11 @@ export class HomeComponent {
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
-    console.log(this.homeService.dataSignal());
-    this.filterItems()  
+    setTimeout(() => {
+      console.log('onInuit');
+      console.log(this.homeService.dataSignal());
+      this.filterItems()  
+    }, 5000);
   }
 
   filterItems() {

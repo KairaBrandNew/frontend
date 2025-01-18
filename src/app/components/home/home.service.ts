@@ -23,9 +23,7 @@ export class HomeService {
         return of([]); // Return an empty array if there's an error
       })
     ).subscribe((trending_item) => {
-      console.log(trending_item);
       this.dataSignal.set(trending_item[0].data); // Update the signal with the fetched data
-      console.log(this.dataSignal());
     });
   }
 }
