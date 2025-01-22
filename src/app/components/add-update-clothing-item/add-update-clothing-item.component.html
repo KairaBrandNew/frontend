@@ -1,0 +1,181 @@
+<div class="clothing-form-container">
+    <h2>Add Clothing Item</h2>
+    <form [formGroup]="clothingForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+
+            <mat-form-field appearance="outline" class="half-width">
+                <mat-label>Product Title</mat-label>
+                <input matInput formControlName="name" placeholder="Enter item name" />
+                @if(clothingForm.get('name')?.invalid && clothingForm.get('name')?.touched) {
+                <mat-error>
+                    Name is required (min 3 characters)
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Fit</mat-label>
+                <input matInput formControlName="fit" placeholder="Enter fit" />
+                @if(clothingForm.get('fit')?.invalid && clothingForm.get('fit')?.touched) {
+                <mat-error>
+                    Fit is required (min 3 characters)
+                </mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Product Type</mat-label>
+                <mat-select formControlName="productType">
+                    @for(type of productTypes; track type) {
+                    <mat-option [value]="type">
+                        {{ type }}
+                    </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Sale Price ($)</mat-label>
+                <input matInput type="number" formControlName="salePrice" placeholder="Enter discount (optional)" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Actual Price ($)</mat-label>
+                <input matInput type="number" formControlName="actualPrice" placeholder="Enter price" />
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+
+            <mat-form-field appearance="outline">
+                <mat-label>Available Size's</mat-label>
+                <mat-select formControlName="size" multiple>
+                    @for(size of sizes; track size) {
+                    <mat-option [value]="size">
+                        {{ size }}
+                    </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Color</mat-label>
+                <mat-select formControlName="color">
+                    @for(color of colors; track color) {
+                    <mat-option [value]="color">
+                        {{ color }}
+                    </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Stock Quantity</mat-label>
+                <input matInput type="number" formControlName="stock" placeholder="Enter stock quantity" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Category</mat-label>
+                <mat-select formControlName="category">
+                    @for(category of categories; track category) {
+                    <mat-option [value]="category">
+                        {{ category }}
+                    </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>Season</mat-label>
+                <mat-select formControlName="season">
+                    @for(season of seasons; track season) {
+                    <mat-option [value]="season">
+                        {{ season }}
+                    </mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-row">
+            <mat-form-field appearance="outline">
+                <mat-label>Fabric Type</mat-label>
+                <input matInput type="string" formControlName="fabricType" placeholder="Enter Fabric Type" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Design Type</mat-label>
+                <input matInput type="string" formControlName="designType" placeholder="Enter Design Type" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Pattern</mat-label>
+                <input matInput type="string" formControlName="patternType" placeholder="Enter Pattern" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Sleeve Type</mat-label>
+                <input type="text" placeholder="Pick one" aria-label="String" matInput formControlName="sleeveType"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    @for(sleeve of sleeveType; track sleeve) {
+                    <mat-option [value]="sleeve">
+                        {{ sleeve }}
+                    </mat-option>
+                    }
+                </mat-autocomplete>
+            </mat-form-field>
+
+        </div>
+
+
+
+        <div class="form-row">
+            <mat-form-field appearance="outline" class="product-description">
+                <mat-label>Item Description</mat-label>
+                <textarea matInput formControlName="description" placeholder="Enter item description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="wash-care-description">
+                <mat-label>Wash Care Description</mat-label>
+                <textarea matInput formControlName="washCareDescribe" placeholder="Describe Wash Care"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form-row">
+            <div formArrayName="imageUrls">
+                @for(imageCtrl of imageUrls.controls; track imageCtrl; let index = $index) {
+                <div [formGroupName]="index">
+                    <mat-form-field appearance="outline" class="image-url">
+                        <mat-label>Image URL {{ index + 1 }}</mat-label>
+                        <input matInput formControlName="url" placeholder="Enter image URL" />
+                        @if(imageCtrl.get('url')?.invalid && imageCtrl.get('url')?.touched) {
+                        <mat-error>
+                            Image URL is required
+                        </mat-error>
+                        }
+                    </mat-form-field>
+                    @if(imageUrls.length > 1) {
+                    <button mat-icon-button color="warn" (click)="removeImageUrl(index)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    }
+                </div>
+                }
+            </div>
+
+            <button mat-button color="primary" (click)="addImageUrl()">+ Add Image</button>
+
+
+            <mat-checkbox formControlName="isTrending">Is Trending Item</mat-checkbox>
+            <mat-checkbox formControlName="isLatest">Is Latest Item</mat-checkbox>
+            <mat-checkbox formControlName="isSpareButtonAvailable">Is Spare Button Available</mat-checkbox>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit" [disabled]="clothingForm.invalid" class="submit-btn">
+            Submit
+        </button>
+    </form>
+</div>

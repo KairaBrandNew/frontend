@@ -1,0 +1,50 @@
+.clothing-form-container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+  
+  mat-checkbox {
+    display: block;
+    margin: 10px 0;
+  }
+
+  
+  mat-icon {
+    vertical-align: middle;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  
+.half-width {
+  width: 30%;
+}
+
+.product-description {
+  width: 50%;
+}
+
+.wash-care-description {
+  width: 30%;
+}
+
+.submit-btn {
+  margin-left: 35%;
+  width: 29%;
+}
+
+.image-url {
+  // width: 50%;
+}

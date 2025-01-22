@@ -23,4 +23,14 @@ export interface PricingItemModel {
     imageUrl: string;
     taxesIncluded: string;
   }
+
+  export interface ImageWithTagLineModel {
+    imageSrc: string;
+    imageAlt: string;
+    heading: string;
+    subheading: string;
+    tagline: string;
+    description: string;
+    buttonLabel: string;
+  }
   

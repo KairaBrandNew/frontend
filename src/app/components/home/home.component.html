@@ -1,4 +1,4 @@
-<app-welcome-section></app-welcome-section>
+<app-welcome-section [imageWithTagLine]="welcomeData"></app-welcome-section>
 <div class="parent-container">
     <div class="category-card-parent slide-right" appScrollAnimation>
         <app-shop-categories [categories]="topCategoryItems"></app-shop-categories>
@@ -17,8 +17,28 @@
 
     <div class="pricing-card-parent slide-left" appScrollAnimation>
         <div>
-            <h2 class="title1">Top Picks</h2>
+            <h2 class="title1">Our Bestsellers</h2>
+            <p>Don't miss out Top Selling styles</p>
         </div>
         <app-pricing-card [pricingItems]="pricingItems"></app-pricing-card>
+    </div>
+    <div class="our-story">
+        <img src="../../../assets/images/BRAND_STORY.webp" alt="our-story" />
+    </div>
+    <div class="pricing-card-parent slide-left" appScrollAnimation>
+        <div>
+            <h2 class="title1">See the latest</h2>
+            <p>Handpicked for you</p>
+        </div>
+        <app-pricing-card [pricingItems]="latestItems"></app-pricing-card>
+    </div>
+    <div class="our-story">
+        <img src="../../../assets/images/TRAVEL HOODIE.webp" alt="our-story" />
+    </div>
+    <div class="features">
+        <img src="../../../assets/images/features image.webp" alt="our-story" />
+    </div>
+    <div class="produc-card-carousel" appScrollAnimation>
+        <app-product-carousel-card></app-product-carousel-card>
     </div>
 </div>

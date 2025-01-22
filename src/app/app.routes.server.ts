@@ -8,4 +8,5 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'home', renderMode: RenderMode.Server },
   { path: 'product', renderMode: RenderMode.Server },
   { path: 'product-list', renderMode: RenderMode.Server },
+  { path: 'add-product-list', renderMode: RenderMode.Server },
 ];

@@ -10,17 +10,18 @@ import { AnimationType } from './carousel/carousel.animations';
 import { MultiGridCarouselComponent } from './multi-grid-carousel/multi-grid-carousel.component';
 import { FooterComponent } from '../shared features/footer/footer.component';
 import { PricingCardComponent } from '../shared features/pricing-card/pricing-card.component';
-import { PricingItemModel, ItemSlideModel, ProductModel } from '../../models/home.model';
+import { PricingItemModel, ItemSlideModel, ProductModel, ImageWithTagLineModel } from '../../models/home.model';
 import { ProductCategoryComponent } from './product-category/product-category.component';
 import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
 import { ShopCategoriesComponent } from '../../shop-categories/shop-categories.component';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation/scroll-animation.directive';
 import { HomeService } from './home.service';
+import { ProductCarouselCardComponent } from './product-card-carousel/product-card-carousel.component';
 
 @Component({
   selector: 'app-home',
   imports: [CarouselComponent, WelcomeSectionComponent, PricingCardComponent, 
-    ShopCategoriesComponent, MultiGridCarouselComponent, ScrollAnimationDirective],
+    ShopCategoriesComponent, MultiGridCarouselComponent, ScrollAnimationDirective, ProductCarouselCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -30,7 +31,6 @@ export class HomeComponent {
   productItems = signal<any[]>([]);
   trendingItems = signal<any[]>([]);
   topCategoryItems = signal<any[]>([]);
-
   
 
   constructor(private homeService: HomeService) {
@@ -39,15 +39,13 @@ export class HomeComponent {
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
-    setTimeout(() => {
       this.productItems = this.homeService.dataSignal;
       this.filterItems()  
-    }, 1000);
   }
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
-    this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem));
+    this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
     this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
   }
 
@@ -118,6 +116,41 @@ export class HomeComponent {
     imageUrl: 'path-to-image',
     taxesIncluded: 'Inclusive of all taxes',
   };
+
+  welcomeData: ImageWithTagLineModel = { 
+    imageSrc: '../../../../assets/images/welcome-image-1.webp',
+    imageAlt: "Stylish Men's Clothing",
+    heading: 'WELCOME',
+    subheading: 'StylishWelco',
+    tagline: "Men's Clothing for Every Occasion",
+    description: 'Elevate your wardrobe with our latest collections.',
+    buttonLabel: 'SHOP NOW'
+  }
+
+
+  latestItems: PricingItemModel[] = [
+    {
+      name: 'Norwich Loose Fit Joggers',
+      price: 1200.00,
+      image: '../../../../assets/images/latest 1.webp'
+    },
+    {
+      name: 'Classic Hoodie',
+      price: 2000.00,
+      image: '../../../../assets/images/latest 2.webp'
+    },
+    {
+      name: 'Corduroy Textured Shackets',
+      price: 1500.00,
+      image: '../../../../assets/images/latest 3.webp'
+    },
+    {
+      name: 'Zip-up Textured Polo Shirts ',
+      price: 1200.00,
+      image: '../../../../assets/images/latest 4.webp'
+    },
+  ];
+
 
   setAnimationType(type: any) {
     this.animationType = type.value;

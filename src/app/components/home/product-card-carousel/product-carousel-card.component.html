@@ -1,0 +1,21 @@
+<div class="carousel-container">
+    <button class="scroll-button left" (click)="scrollLeft(carousel)">&#8249;</button>
+    <div class="carousel" #carousel>
+        @for(product of products; track product;) {
+            <div class="product-card">
+                <img [src]="product.image" [alt]="product.name" class="product-image" />
+                <div class="product-info">
+                  <h3 class="product-name">{{ product.name }}</h3>
+                  <p class="product-price">
+                    ₹{{ product.price }}
+                    <span class="original-price">₹{{ product.originalPrice }}</span>
+                  </p>
+                  <p class="product-discount">{{ product.discount }}</p>
+                </div>
+              </div>
+        }
+  
+    </div>
+    <button class="scroll-button right" (click)="scrollRight(carousel)">&#8250;</button>
+  </div>
+  

@@ -4,10 +4,10 @@
   width: 500px;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 91%;
 }
 .container-carousel {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .features-img {
@@ -24,7 +24,7 @@
 
 .category-card-parent {
   margin: 42px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .pricing-card-parent {
@@ -35,7 +35,7 @@
 
 .trending-parent {
   margin: 42px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .parent-container {
@@ -66,6 +66,31 @@
   transform: translateX(0);
 }
 
+.our-story {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  justify-content: center;
+}
+
+.our-story img {
+  width: 100%;
+}
+
+.features {
+  width: 100%;
+}
+
+.features img {
+  width: 69%;
+  padding: 30px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+
+
 /* Medium screen (tablets) */
 @media screen and (max-width: 768px) {
   .category-card-parent {
@@ -75,7 +100,6 @@
 
 /* Small screen (mobile phones) */
 @media screen and (max-width: 480px) {
-
   .category-card-parent {
     margin: 0px;
   }

@@ -1,14 +1,23 @@
-<div class="explore-container">
-    <div class="image-container">
-        <img src="../../../../assets/images/welcome-image-1.webp" alt="Stylish Men's Clothing" />
-    </div>
-    <div class="welcome-section">
-        <div class="content-text">
-            <h2>WELCOME</h2>
-            <h1>StylishWelco</h1>
-            <h3>Men's Clothing for Every Occasion</h3>
-            <p>Elevate your wardrobe with our latest collections.</p>
-            <button style="cursor: pointer !important;" (click)="navigateToShop()">SHOP NOW</button>
+@if(imageWithTagLine) {
+    <div class="explore-container">
+        <div class="image-container">
+          <img 
+            [src]="imageWithTagLine.imageSrc" 
+            [alt]="imageWithTagLine.imageAlt" />
         </div>
-    </div>
-</div>
+        <div class="welcome-section">
+          <div class="content-text">
+            <h2>{{ imageWithTagLine.heading }}</h2>
+            <h1>{{ imageWithTagLine.subheading }}</h1>
+            <h3>{{ imageWithTagLine.tagline }}</h3>
+            <p>{{ imageWithTagLine.description }}</p>
+            <button 
+              style="cursor: pointer !important;" 
+              (click)="navigateToShop()">
+              {{ imageWithTagLine.buttonLabel }}
+            </button>
+          </div>
+        </div>
+      </div>
+}
+
