@@ -12,6 +12,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { HomeService } from '../home/home.service';
+import { AsyncPipe } from '@angular/common';
+import { map, Observable, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-add-update-clothing-item',
@@ -23,103 +26,30 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatIconModule,
     MatAutocompleteModule,
+    AsyncPipe,
   ],
   templateUrl: './add-update-clothing-item.component.html',
   styleUrl: './add-update-clothing-item.component.scss',
 })
 export class AddUpdateProductItemComponent {
   clothingForm: FormGroup;
-  categories: string[] = ['Men', 'Women', 'Kids'];
-  sleeveType: string[] = [
-    'Standard Short Sleeves',
-    'Cap Sleeves',
-    'Half Sleeves',
-    'Full Sleeves',
-    '3/4 Sleeves',
-    'Raglan Sleeves',
-    'Kimono Sleeves',
-    'Batwing Sleeves',
-    'Roll-Up Sleeves',
-    'Cuffed Sleeves',
-    'Bishop Sleeves',
-    'Bell Sleeves',
-    'Slit Sleeves',
-    'Dolman Sleeves',
-    'Puffed Sleeves',
-  ];
-  productTypes: string[] = [
-    'Round Neck',
-    'V-Neck',
-    'Polo Shirts',
-    'Henley Shirts',
-    'Checked Shirts',
-    'Striped Shirts',
-    'Plain Shirts',
-    'Graphic T-Shirts',
-    'Full Sleeve Shirts',
-    'Half Sleeve Shirts',
-    '3/4 Sleeve Shirts',
-    'Short Sleeve Shirts',
-    'Tank Tops',
-    'Sweaters',
-    'Hoodies',
-    'Jackets',
-    'Blazers',
-    'Coats',
-    'Suits',
-    'Kurta',
-    'Sherwani',
-    'Casual Shirts',
-    'Formal Shirts',
-    'Denim Shirts',
-    'Bomber Jackets',
-    'Trench Coats',
-    'Windcheaters',
-    'Puffer Jackets',
-    'Raincoats',
-    'Turtleneck Shirts',
-  ];
-  seasons: string[] = ['Summer', 'Winter', 'Spring', 'Autumn'];
-  sizes: string[] = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
-  colors: string[] = [
-    'Red',
-    'Blue',
-    'Green',
-    'Black',
-    'White',
-    'Yellow',
-    'Orange',
-    'Purple',
-    'Pink',
-    'Brown',
-    'Grey',
-    'Cyan',
-    'Magenta',
-    'Maroon',
-    'Beige',
-    'Teal',
-    'Navy',
-    'Olive',
-    'Gold',
-    'Silver',
-    'Charcoal',
-    'Ivory',
-    'Lavender',
-    'Peach',
-    'Coral',
-    'Mint',
-    'Turquoise',
-    'Burgundy',
-    'Mustard',
-    'Khaki',
-  ];
+  categories!: Observable<string[]>;
+  sleeveType!: Observable<string[]>;
+  productTypes!: Observable<string[]>;
+  seasons!: Observable<string[]>;
+  sizes: string[] = [];
+  colors!: Observable<string[]>;
+  fitType!: Observable<string[]>;
+  attributes: any;
+  errorMessage!: string;
+  filteredOptions!: Observable<string[]>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private homeService: HomeService) {
     this.clothingForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       fit: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', Validators.required],
-      actualPrice: [null, [Validators.min(1)]],
+      actualPrice: [null, [Validators.min(1), Validators.max(100)]],
       category: ['', Validators.required],
       productType: ['', Validators.required],
       season: [''],
@@ -141,7 +71,24 @@ export class AddUpdateProductItemComponent {
       sleeveType: ['', [Validators.minLength(3)]],
     });
   }
-  
+
+  ngOnInit(): void {
+    // Fetch all attributes grouped by type
+    this.getAllAttributes();
+  }
+
+  // Method to get all attributes grouped by type
+  getAllAttributes(): void {
+    this.homeService.getAllAttributes().subscribe(
+      (data) => {
+        this.attributes = data;
+        this.initializeFilteredOptions();
+      },
+      (error) => {
+        this.errorMessage = `Error fetching attributes: ${error.message}`;
+      }
+    );
+  }
 
   // Helper function to create a form control for image URL
   createImageUrl(): FormGroup {
@@ -164,7 +111,40 @@ export class AddUpdateProductItemComponent {
 
   onSubmit() {
     if (this.clothingForm.valid) {
-      console.log('Form submitted:', this.clothingForm.value);
+      this.homeService.addClothingItems(this.clothingForm.value);
     }
+  }
+
+  // Initialize filteredOptions after dynamic data is fetched
+  private initializeFilteredOptions() {
+    this.productTypes = this._initializeFilter('productType');
+    this.colors = this._initializeFilter('color');
+    this.categories = this._initializeFilter('category');
+    this.seasons = this._initializeFilter('season');
+    this.sleeveType = this._initializeFilter('sleeveType');
+    this.sizes = this.attributes.size;
+
+  }
+
+  // Generalized filtering logic
+  private _initializeFilter(
+    attribute: Extract<keyof typeof this.attributes, string | number>
+  ): Observable<string[]> {
+    return this.clothingForm.controls[attribute].valueChanges.pipe(
+      startWith(''),
+      map((value) => this._filterOptions(value || '', attribute))
+    );
+  }
+
+  private _filterOptions(
+    value: string,
+    attribute: keyof typeof this.attributes
+  ): string[] {
+    const filterValue = value.toLowerCase(); // Case-insensitive search
+    return (
+      this.attributes[attribute]?.filter((option: string) =>
+        option.toLowerCase().includes(filterValue)
+      ) || []
+    );
   }
 }
