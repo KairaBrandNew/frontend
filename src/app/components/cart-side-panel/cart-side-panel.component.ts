@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
-import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
-
 export interface CartItem {
   title: string;
   image: string;
@@ -19,12 +17,9 @@ export interface CartItem {
 export class CartSidePanelComponent {
   @Input() isOpen = signal(false); // Signal to control visibility of the side panel
   @Input() cartItems = signal<CartItem[]>([]);
-  public payPalConfig ? : IPayPalConfig;
   showSuccess!: boolean;
   showCancel!: boolean;
   showError!: boolean;
-  public showPaypalButtons!: boolean;
-
   
 
     // Expose Math object
