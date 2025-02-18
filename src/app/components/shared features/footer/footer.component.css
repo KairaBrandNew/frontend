@@ -32,10 +32,10 @@ a {
 }
 
 .footer-content {
-    margin-left: auto;
+    margin-left: initial;
     margin-right: auto;
     max-width: 1230px;
-    padding: 40px 15px 450px;
+    padding: 40px 15px 236px;
     position: relative;
 }
 
@@ -318,7 +318,7 @@ a {
         margin-left: auto;
         margin-right: auto;
         max-width: 1230px;
-        padding: 40px 15px 450px;
+        padding: 40px 15px 236px;
         position: relative;
     }
 
