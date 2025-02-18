@@ -10,7 +10,8 @@ import { CancellationAndRefundPolicyComponent } from './components/cancellation-
 export const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
-    {path: 'all-products', component: FilterDisplayProductComponent},
+    {path: 'product', component: ProductCardComponent},
+    {path: 'product-list', component: FilterDisplayProductComponent},
     {path: 'add-product-list', component: AddUpdateProductItemComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'terms & condition', component: TermsAndConditionComponent},

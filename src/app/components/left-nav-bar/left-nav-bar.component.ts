@@ -44,7 +44,7 @@ export class LeftNavBarComponent {
   // ]);
   menuItems = signal([
     { label: 'Home 😊', link: '/home',  children: [] },
-    { label: "All Products", link: '/all-products',  children: [] },
+    { label: "All Products", link: '/product-list',  children: [] },
     { label: 'Cancellation & Refund Policy', link: '/cancellation-refundPolicy',  children: [] },
     { label: 'Contact Us', link: '/contact',  children: [] },
     { label: 'Terms & condition', link: '/terms & condition',  children: [] },

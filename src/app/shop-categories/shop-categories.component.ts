@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 export class ShopCategoriesComponent {
   @ViewChild('carouselContainer', { static: true }) carouselContainer!: ElementRef;
   @Input() categories = signal<any[]>([]);
+      // @Input() categories: ItemSlideModel[] = [];
+
   topCategoryItems = signal<any[]>([]);
 
   
