@@ -20,27 +20,41 @@ export class LeftNavBarComponent {
 
 
   // Define a signal for the menu items
+  // menuItems = signal([
+  //   { label: 'New Arrival 😊', link: '/product-list',  children: [] },
+  //   { label: 'Best Selling', link: '/product',  children: [] },
+  //   {
+  //     label: "Men's Shirts", 
+  //     link: '/mens-shirts', 
+  //     children: [
+  //       { label: 'Casual Shirts', link: '/product-list' },
+  //       { label: 'Formal Shirts', link: '/product-list' }
+  //     ]
+  //   },
+  //   { label: "Men's Co-ords", link: '/product',  children: [] },
+  //   { label: 'T-Shirts', link: '/product-list',  children: [] },
+  //   { label: 'Plus Size ➕', link: '/plus-size',  children: [] },
+  //   { label: '🚨 Back in Stock 🚨', link: '/back-in-stock',  children: [] },
+  //   { label: 'Bottom Wear', link: '/bottom-wear',  children: [] },
+  //   { label: 'Exchange & Return Center', link: '/exchange-return',  children: [] },
+  //   { label: 'Be in the Spotlight', link: '/spotlight',  children: [] },
+  //   { label: 'Support', link: '/support',  children: [] },
+  //   { label: 'About Us', link: '/about',  children: [] },
+  //   { label: 'For Business Inquiry', link: '/business-inquiry',  children: [] }
+  // ]);
   menuItems = signal([
-    { label: 'New Arrival 😊', link: '/product-list',  children: [] },
-    { label: 'Best Selling', link: '/product',  children: [] },
-    {
-      label: "Men's Shirts", 
-      link: '/mens-shirts', 
-      children: [
-        { label: 'Casual Shirts', link: '/product-list' },
-        { label: 'Formal Shirts', link: '/product-list' }
-      ]
-    },
-    { label: "Men's Co-ords", link: '/product',  children: [] },
-    { label: 'T-Shirts', link: '/product-list',  children: [] },
-    { label: 'Plus Size ➕', link: '/plus-size',  children: [] },
-    { label: '🚨 Back in Stock 🚨', link: '/back-in-stock',  children: [] },
-    { label: 'Bottom Wear', link: '/bottom-wear',  children: [] },
-    { label: 'Exchange & Return Center', link: '/exchange-return',  children: [] },
-    { label: 'Be in the Spotlight', link: '/spotlight',  children: [] },
-    { label: 'Support', link: '/support',  children: [] },
-    { label: 'About Us', link: '/about',  children: [] },
-    { label: 'For Business Inquiry', link: '/business-inquiry',  children: [] }
+    { label: 'Home 😊', link: '/home',  children: [] },
+    { label: "All Products", link: '/all-products',  children: [] },
+    { label: 'Cancellation & Refund Policy', link: '/cancellation-refundPolicy',  children: [] },
+    { label: 'Contact Us', link: '/contact',  children: [] },
+    { label: 'Terms & condition', link: '/terms & condition',  children: [] },
+    // { label: '🚨 Back in Stock 🚨', link: '/back-in-stock',  children: [] },
+    // { label: 'Bottom Wear', link: '/bottom-wear',  children: [] },
+    // { label: 'Exchange & Return Center', link: '/exchange-return',  children: [] },
+    // { label: 'Be in the Spotlight', link: '/spotlight',  children: [] },
+    // { label: 'Support', link: '/support',  children: [] },
+    // { label: 'About Us', link: '/about',  children: [] },
+    // { label: 'For Business Inquiry', link: '/business-inquiry',  children: [] }
   ]);
 
   // Toggle the accordion visibility for any menu item

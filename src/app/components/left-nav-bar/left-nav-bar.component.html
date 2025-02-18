@@ -14,14 +14,14 @@
                 {{ item.label }}
             </mat-expansion-panel-header>
             <div class="submenu">
-                @for(child of item.children; track child) {
+                <!-- @for(child of item.children; track child) {
                 <mat-expansion-panel hideToggle disabled class="sub-menu-panel">
                     <mat-expansion-panel-header>
                         <a [href]="child.link" class="submenu-link">{{ child.label }}</a>
                     </mat-expansion-panel-header>
                 </mat-expansion-panel>
-                <!-- <a [href]="child.link" class="submenu-link">{{ child.label }}</a> -->
-                }
+                <a [href]="child.link" class="submenu-link">{{ child.label }}</a>
+                } -->
             </div>
         </mat-expansion-panel>
         }

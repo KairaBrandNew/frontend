@@ -26,7 +26,7 @@ export class HomeService {
         })
       )
       .subscribe((trending_item) => {
-        this.dataSignal.set(trending_item[0].data); // Update the signal with the fetched data
+        this.dataSignal.set(trending_item[0]?.data); // Update the signal with the fetched data
       });
   }
   // Method to call the Node.js API
