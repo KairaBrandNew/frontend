@@ -32,16 +32,3 @@
         <p>Items: Rs. {{ totalPrice }}</p>
         <p>Buy 3 - 15%: -Rs. {{ discountedPrice}}</p>
     </div>
-@if (!showPaypalButtons) {
-    <button class="checkout-button" (click)="checkOut()"
-  (click)="pay()">Checkout</button>
-}
-</div>
-@if(showPaypalButtons) {
-    <ngx-paypal 
-  [config]="payPalConfig">
-</ngx-paypal>
-}
-@if(showPaypalButtons) {
-    <button (click)="back()">Go Back</button>
-}
