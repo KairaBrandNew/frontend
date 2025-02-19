@@ -39,7 +39,7 @@ export class HomeComponent {
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
-      this.productItems.set(this.homeService.dataSignal());
+      this.productItems.set(this.homeService.productDetails);
       this.filterItems()  
   }
 
