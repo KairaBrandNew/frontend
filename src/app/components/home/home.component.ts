@@ -54,7 +54,6 @@ export class HomeComponent {
           })
         )
         .subscribe((trending_item) => {
-          console.log('component',trending_item);
           this.productItems.set(trending_item[0]?.data); // Update the signal with the fetched data
           this.filterItems();
         });

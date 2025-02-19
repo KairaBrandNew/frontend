@@ -23,9 +23,6 @@ export class ProductCategoryComponent {
   ];
 
   onViewDetails(categoryName: string): void {
-    debugger;
-    console.log(`View details for: ${categoryName}`);
-    // this.router.navigate(['/product', { id: '12' }]);
     this.router.navigate(['/product-list', { id: '12' }]);
   }
 
