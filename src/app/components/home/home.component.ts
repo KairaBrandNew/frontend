@@ -10,7 +10,7 @@ import { ScrollAnimationDirective } from '../../directives/scroll-animation/scro
 import { HomeService } from './home.service';
 import { ProductCarouselCardComponent } from './product-card-carousel/product-card-carousel.component';
 import { HttpClient } from '@angular/common/http';
-import { catchError, of } from 'rxjs';
+import { catchError, of, Subscription } from 'rxjs';
 import { VideoPlayerComponent } from '../../video-player/video-player.component';
 
 @Component({
@@ -27,6 +27,7 @@ export class HomeComponent {
   productItems = signal<any[]>([]);
   trendingItems = signal<any[]>([]);
   topCategoryItems = signal<any[]>([]);
+  productDetailsSubscription!: Subscription;
   
 
   constructor(private homeService: HomeService, private http: HttpClient) {
@@ -38,7 +39,7 @@ export class HomeComponent {
   }
 
   fetchAllProjectDetails(): void {
-      this.http
+     this.productDetailsSubscription = this.http
         .get<any[]>(this.baseUrl)
         .pipe(
           catchError((error) => {
@@ -54,8 +55,8 @@ export class HomeComponent {
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
-      this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
-      this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
+      this.trendingItems.set(this.productItems()?.filter(item => item.isTrendingItem).slice(0, 6));
+      this.topCategoryItems.set(this.productItems()?.filter(item => item.isTopCategory));
   }
 
 
@@ -189,6 +190,10 @@ export class HomeComponent {
     setTimeout(() => {
       this.carousel.onNextClick();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.productDetailsSubscription.unsubscribe();
   }
 
 }

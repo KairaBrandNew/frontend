@@ -6,6 +6,7 @@ import { AddUpdateProductItemComponent } from './components/add-update-clothing-
 import { ContactComponent } from './components/contact/contact.component';
 import { TermsAndConditionComponent } from './components/terms-and-condition/terms-and-condition.component';
 import { CancellationAndRefundPolicyComponent } from './components/cancellation-and-refund-policy/cancellation-and-refund-policy.component';
+import { ShippingPaymentComponent } from './components/shipping-product/shipping-payment.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path: 'add-product-list', component: AddUpdateProductItemComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'terms & condition', component: TermsAndConditionComponent},
-    {path: 'cancellation-refundPolicy', component: CancellationAndRefundPolicyComponent}
+    {path: 'cancellation-refundPolicy', component: CancellationAndRefundPolicyComponent},
+    {path: 'shipping-item', component: ShippingPaymentComponent}
 ];

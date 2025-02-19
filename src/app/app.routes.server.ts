@@ -11,5 +11,6 @@ export const serverRoutes: ServerRoute[] = [
   { path: 'add-product-list', renderMode: RenderMode.Server },
   { path: 'contact', renderMode: RenderMode.Server },
   { path: 'terms & condition', renderMode: RenderMode.Server },
-  {path: 'cancellation-refundPolicy', renderMode: RenderMode.Server}
+  {path: 'cancellation-refundPolicy', renderMode: RenderMode.Server},
+  {path: 'shipping-item', renderMode: RenderMode.Server}
 ];

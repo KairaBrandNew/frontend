@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Router } from '@angular/router';
 export interface CartItem {
   title: string;
   image: string;
@@ -20,10 +21,12 @@ export class CartSidePanelComponent {
   showSuccess!: boolean;
   showCancel!: boolean;
   showError!: boolean;
-  
-
     // Expose Math object
   Math = Math;
+
+  constructor(private router: Router) {
+
+  }
 
   
   get totalPrice() {
@@ -41,5 +44,9 @@ export class CartSidePanelComponent {
   removeItem(index: number) {
     const updatedItems = this.cartItems().filter((_, i) => i !== index);
     this.cartItems.set(updatedItems);
+  }
+
+  checkOut(): void {
+    this.router.navigate(['/shipping-item']);
   }
 }
