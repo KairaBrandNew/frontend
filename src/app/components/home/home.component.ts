@@ -43,8 +43,8 @@ export class HomeComponent {
   }
 
   ngAfterViewInit(): void {
-    console.log('testvvsvv')
-    this.productItems.set(this.homeService.dataSignal());
+    console.log('testvvsvv162156')
+    this.productItems.set(this.homeService.projectDetails);
     this.filterItems()   
   }
 
@@ -123,8 +123,8 @@ export class HomeComponent {
   };
 
   welcomeData: ImageWithTagLineModel = { 
-    imageSrc: '../../../../assets/images/welcome-image-1.webp',
-    imageAlt: "Stylish Men's Clothing",
+    imageSrc: '../../../../assets/images/welcome_image_2.jpeg',
+    imageAlt: "Stylish Baby's Clothing",
     heading: 'WELCOME',
     subheading: 'StylishWelco',
     tagline: "Men's Clothing for Every Occasion",

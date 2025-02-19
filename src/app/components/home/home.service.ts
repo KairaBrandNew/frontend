@@ -12,6 +12,7 @@ export class HomeService {
   private baseUrl = 'https://backend-kaira.onrender.com/api/home/trending_items';
   // private baseUrl = 'http://localhost:8080/api/clothing';
   public dataSignal = signal<any[]>([]);
+  projectDetails = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,8 +29,10 @@ export class HomeService {
       .subscribe((trending_item) => {
         console.log('service',trending_item);
         this.dataSignal.set(trending_item[0]?.data); // Update the signal with the fetched data
+        this.projectDetails = trending_item[0]?.data;
       });
   }
+  
   // Method to call the Node.js API
   addClothingItems(clothingData: any): void {
     // POST request to the Node.js API
