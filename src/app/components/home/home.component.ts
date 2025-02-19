@@ -17,6 +17,8 @@ import { ShopCategoriesComponent } from '../../shop-categories/shop-categories.c
 import { ScrollAnimationDirective } from '../../directives/scroll-animation/scroll-animation.directive';
 import { HomeService } from './home.service';
 import { ProductCarouselCardComponent } from './product-card-carousel/product-card-carousel.component';
+import { HttpClient } from '@angular/common/http';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -26,6 +28,7 @@ import { ProductCarouselCardComponent } from './product-card-carousel/product-ca
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  private baseUrl = 'https://backend-kaira.onrender.com/api/home/trending_items';
   @ViewChild(CarouselComponent, { static: true }) carousel!: CarouselComponent;
   animationType = AnimationType.Scale;
   productItems = signal<any[]>([]);
@@ -33,20 +36,29 @@ export class HomeComponent {
   topCategoryItems = signal<any[]>([]);
   
 
-  constructor(private homeService: HomeService) {
+  constructor(private homeService: HomeService, private http: HttpClient) {
     this.productItems = this.homeService.dataSignal
   }
 
   ngOnInit(): void {
-    // Fetch trendingItems on component initialization
-    this.homeService.fetchTrendingItems();
+    this.fetchAllProjectDetails();
   }
 
-  ngAfterViewInit(): void {
-    console.log('testvvsvv162156')
-    this.productItems.set(this.homeService.projectDetails);
-    this.filterItems()   
-  }
+  fetchAllProjectDetails(): void {
+      this.http
+        .get<any[]>(this.baseUrl)
+        .pipe(
+          catchError((error) => {
+            console.error('Error fetching posts:', error);
+            return of([]); // Return an empty array if there's an error
+          })
+        )
+        .subscribe((trending_item) => {
+          console.log('component',trending_item);
+          this.productItems.set(trending_item[0]?.data); // Update the signal with the fetched data
+          this.filterItems();
+        });
+    }
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
@@ -123,12 +135,12 @@ export class HomeComponent {
   };
 
   welcomeData: ImageWithTagLineModel = { 
-    imageSrc: '../../../../assets/images/welcome_image_2.jpeg',
-    imageAlt: "Stylish Baby's Clothing",
+    imageSrc: '../../../../assets/images/welcome_image_1.jpeg',
+    imageAlt: "Cute & Comfy Baby's Clothing",
     heading: 'WELCOME',
     subheading: 'StylishWelco',
-    tagline: "Men's Clothing for Every Occasion",
-    description: 'Elevate your wardrobe with our latest collections.',
+    tagline: "Baby's Clothing for Every Moment",
+    description: 'Wrap your little ones in style and comfort with our newest collections.',
     buttonLabel: 'SHOP NOW'
   }
 

@@ -17,21 +17,7 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   // Method to call the Node.js API
-  fetchTrendingItems(): void {
-    this.http
-      .get<any[]>(this.baseUrl)
-      .pipe(
-        catchError((error) => {
-          console.error('Error fetching posts:', error);
-          return of([]); // Return an empty array if there's an error
-        })
-      )
-      .subscribe((trending_item) => {
-        console.log('service',trending_item);
-        this.dataSignal.set(trending_item[0]?.data); // Update the signal with the fetched data
-        this.projectDetails = trending_item[0]?.data;
-      });
-  }
+
   
   // Method to call the Node.js API
   addClothingItems(clothingData: any): void {
