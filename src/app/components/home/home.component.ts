@@ -34,16 +34,18 @@ export class HomeComponent {
   
 
   constructor(private homeService: HomeService) {
+    this.productItems = this.homeService.dataSignal
   }
 
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
-    setTimeout(() => {
-      console.log('ccc', this.homeService.dataSignal())
-      this.productItems.set(this.homeService.dataSignal());
-      this.filterItems()   
-    }, 2000);
+  }
+
+  ngAfterViewInit(): void {
+    console.log('testvvsvv')
+    this.productItems.set(this.homeService.dataSignal());
+    this.filterItems()   
   }
 
   filterItems() {
