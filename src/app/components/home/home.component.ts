@@ -39,13 +39,14 @@ export class HomeComponent {
   ngOnInit(): void {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
-      this.productItems = this.homeService.dataSignal;
+      this.productItems.set(this.homeService.dataSignal());
       this.filterItems()  
   }
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
     setTimeout(() => {
+      console.log('test1', this.productItems());
       this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
       this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
       console.log('test', this.trendingItems());
