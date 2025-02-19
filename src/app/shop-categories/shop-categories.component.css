@@ -37,18 +37,22 @@
   flex-shrink: 0;
   text-align: center;
   cursor: pointer;
+  overflow: hidden; /* Ensure the scaled image stays visible */
+  position: relative;
 }
 
 .category-image {
   width: 100%;
   height: 83%;
-  border-radius: 32%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  object-fit: cover;
+  display: block;
 }
 
 .category-image:hover {
-  transform: scale(1.5);
+  transform: scale(1.2); /* Slightly reduce the scale for better view */
+  z-index: 1;
 }
 
 .category-name {

@@ -25,7 +25,7 @@ export class ShopCategoriesComponent {
   constructor(private router: Router, @Inject(PLATFORM_ID) platformId: object) { 
     this.isBrowser.set(isPlatformBrowser(platformId));  // save isPlatformBrowser in signal
     if (this.isBrowser()) {
-      this.autoScrollCarousel()
+      // this.autoScrollCarousel()
     }
   }
 
