@@ -1,17 +1,9 @@
 import { Component, signal, Signal, ViewChild } from '@angular/core';
-import { HeaderComponent } from '../shared features/header/header.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { CarouselComponent } from './carousel/carousel.component';
 import { AnimationType } from './carousel/carousel.animations';
 import { MultiGridCarouselComponent } from './multi-grid-carousel/multi-grid-carousel.component';
-import { FooterComponent } from '../shared features/footer/footer.component';
 import { PricingCardComponent } from '../shared features/pricing-card/pricing-card.component';
-import { PricingItemModel, ItemSlideModel, ProductModel, ImageWithTagLineModel } from '../../models/home.model';
-import { ProductCategoryComponent } from './product-category/product-category.component';
+import { PricingItemModel, ItemSlideModel, ProductModel, ImageWithTagLineModel, ProductVideoItemModel } from '../../models/home.model';
 import { WelcomeSectionComponent } from './welcome-section/welcome-section.component';
 import { ShopCategoriesComponent } from '../../shop-categories/shop-categories.component';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation/scroll-animation.directive';
@@ -88,8 +80,7 @@ export class HomeComponent {
 
   homeCarouselSlides: ItemSlideModel[] = [
     { imageUrl: '../../../../assets/images/carousel_image_1_new.jpeg'},
-    { imageUrl: "../../../assets/images/Image 2.jpg"},
-    { imageUrl: "../../../assets/images/Image 4.jpg"},
+    { imageUrl: "../../../assets/images/carousel_image_2_new.jpeg"},
   ];
 
   // trendingItems: ItemSlideModel[] = [
@@ -150,25 +141,44 @@ export class HomeComponent {
       name: 'Norwich Loose Fit Joggers',
       price: 1200.00,
       image: '../../../../assets/images/latest 1.webp',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Classic Hoodie',
       price: 2000.00,
       image: '../../../../assets/images/latest 2.webp',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Corduroy Textured Shackets',
       price: 1500.00,
       image: '../../../../assets/images/latest 3.webp',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Zip-up Textured Polo Shirts ',
       price: 1200.00,
       image: '../../../../assets/images/latest 4.webp',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+    },
+  ];
+
+  productVideo: ProductVideoItemModel[] = [
+    {
+      name: 'Norwich Loose Fit Joggers',
+      price: 1200.00,
+      videoUrl: 'https://player.vimeo.com/video/1057772845?h=8f83c3e4b7&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
+    },
+    {
+      name: 'Classic Hoodie',
+      price: 2000.00,
+      videoUrl: 'https://player.vimeo.com/video/1057772812?h=47291cba68&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
+    },
+    {
+      name: 'Corduroy Textured Shackets',
+      price: 1500.00,
+      videoUrl: 'https://player.vimeo.com/video/1057772771?h=f48afa5d9c&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
+    },
+    {
+      name: 'Corduroy Textured Shackets',
+      price: 1500.00,
+      videoUrl: 'https://player.vimeo.com/video/1058194909?h=0b95fdbb81&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479'
     },
   ];
 

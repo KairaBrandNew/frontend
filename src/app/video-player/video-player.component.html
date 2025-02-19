@@ -1,19 +1,18 @@
 <div class="pricing-cards-container">
-    @for(item of pricingItems; track item;) {
+    @for(videoUrl of safeVideos; track videoUrl;) {
     <mat-card class="pricing-card" appearance="outlined">
-        <video mat-card-image [src]="item.videoUrl" controls preload="metadata" alt="Product Video"
-            class="product-video">
-            Your browser does not support the video tag.
-        </video>
-
-        <mat-card-content>
+        <iframe [src]="videoUrl" class="iframe-video"  frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen
+            title="Vimeo Video">
+        </iframe>
+        <!-- <mat-card-content>
             <h2 class="product-name title2">
                 {{ item.name }}
             </h2>
             <div class="product-price">
                 Rs. {{ item.price }}/-
             </div>
-        </mat-card-content>
+        </mat-card-content> -->
     </mat-card>
     }
 </div>
