@@ -26,6 +26,7 @@ export class HomeService {
         })
       )
       .subscribe((trending_item) => {
+        console.log('service',trending_item);
         this.dataSignal.set(trending_item[0]?.data); // Update the signal with the fetched data
       });
   }
