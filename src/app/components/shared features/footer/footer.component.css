@@ -252,8 +252,9 @@ a {
     text-decoration: none;
 }
 
-
-
+::ng-deep .mat-expansion-panel {
+    cursor: pointer !important;
+}
 
 
 

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, Signal, signal } from '@angular/core';
+import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatButtonModule,
     MatExpansionModule,
     MatToolbarModule,
-    MatSidenavModule,]
+    MatSidenavModule,
+    RouterLink]
 })
 export class LeftNavBarComponent {
   @Output() closeNavEmit = new EventEmitter<void>();

@@ -29,7 +29,7 @@
         @if(item.children.length === 0) {
         <mat-expansion-panel hideToggle disabled>
             <mat-expansion-panel-header>
-                <a [href]="item.link" class="menu-link">{{ item.label }}</a>
+                <a [routerLink]="item.link" class="menu-link">{{ item.label }}</a>
             </mat-expansion-panel-header>
         </mat-expansion-panel>
         }
