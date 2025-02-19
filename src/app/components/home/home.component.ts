@@ -46,7 +46,7 @@ export class HomeComponent {
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
     this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
-    this.topCategoryItems.set(this.productItems().filter(item => item.isTrendingItem));
+    this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
   }
 
 
