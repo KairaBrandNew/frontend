@@ -1,0 +1,56 @@
+.pricing-card {
+    max-width: 300px;
+    border: 0;
+    flex: 1 1 calc(33.33% - 20px); /* Default: 3 cards per row with spacing */
+    margin: 10px; /* Adds some spacing between cards */
+  }
+  
+  .pricing-card-image {
+    background-size: cover;
+  }
+  
+  .pricing-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Ensures cards are centered */
+    gap: 20px; /* Space between cards */
+    padding: 0 20px; /* Padding around the container */
+  }
+  
+  .product-price {
+    margin-top: 3px;
+  }
+  
+  .mat-mdc-card-content {
+    padding: 0 !important;
+  }
+  
+  .product-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  /* Medium screen (tablets) */
+  @media screen and (max-width: 768px) {
+    .pricing-card {
+      flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+    }
+    .pricing-cards-container {
+      gap: 15px; /* Reduce gap on smaller screens */
+      padding: 0 15px; /* Adjust padding */
+    }
+  }
+  
+  /* Small screen (mobile phones) */
+  @media screen and (max-width: 480px) {
+    .pricing-card {
+      flex: 1 1 100%; /* 1 card per row */
+    }
+    .pricing-cards-container {
+      gap: 10px; /* Minimal gap for compact screens */
+      padding: 0 10px; /* Minimal padding for small screens */
+    }
+  }
+  

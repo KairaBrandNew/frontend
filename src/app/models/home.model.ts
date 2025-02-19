@@ -3,6 +3,7 @@ export interface PricingItemModel {
     price: number;
     image: string;
     description?: string;
+    videoUrl?: string;
   }
 
 

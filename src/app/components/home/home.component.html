@@ -8,6 +8,14 @@
         <app-carousel [slides]="homeCarouselSlides" [animationType]="animationType"></app-carousel>
     </div>
 
+    <div class="pricing-card-parent slide-left" appScrollAnimation>
+        <div>
+            <h2 class="title1">See the latest</h2>
+            <p>Videos</p>
+        </div>
+        <app-video-player [pricingItems]="latestItems"></app-video-player>
+    </div>
+
     <!-- <div class="container-muli-grid-carousel">
     <app-multi-grid-carousel [slides]="slides"></app-multi-grid-carousel>
 </div> -->

@@ -150,25 +150,25 @@ export class HomeComponent {
       name: 'Norwich Loose Fit Joggers',
       price: 1200.00,
       image: '../../../../assets/images/latest 1.webp',
-      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Classic Hoodie',
       price: 2000.00,
       image: '../../../../assets/images/latest 2.webp',
-      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Corduroy Textured Shackets',
       price: 1500.00,
       image: '../../../../assets/images/latest 3.webp',
-      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Zip-up Textured Polo Shirts ',
       price: 1200.00,
       image: '../../../../assets/images/latest 4.webp',
-      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
   ];
 
