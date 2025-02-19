@@ -3,12 +3,12 @@
     <h2 class="title1">TOP CATEGORY</h2>
     <div class="carousel">
         <!-- Left Navigation -->
-        <button mat-icon-button class="carousel-control left" (click)="scrollCarousel(-1); onManualCarouselClick();" aria-label="Left Arrow">
+        <!-- <button mat-icon-button class="carousel-control left" (click)="scrollCarousel(-1); onManualCarouselClick();" aria-label="Left Arrow">
             <mat-icon>keyboard_arrow_left</mat-icon>
-        </button>
+        </button> -->
 
         <!-- Carousel Items -->
-        <div class="carousel-items" #carouselContainer>
+        <div class="carousel-items">
             <!-- Use *ngFor for iterating over categories -->
             @for(item of topCategories(); track item; let index = $index) {
             <div class="category-card" (click)="navigateToCategoryItem()">

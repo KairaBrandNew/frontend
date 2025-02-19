@@ -24,7 +24,7 @@ export class ShopCategoriesComponent {
   constructor(private router: Router, @Inject(PLATFORM_ID) platformId: object) { 
     this.isBrowser.set(isPlatformBrowser(platformId));  // save isPlatformBrowser in signal
     if (this.isBrowser()) {
-      this.autoScrollCarousel()
+      // this.autoScrollCarousel()
     }
   }
 
@@ -84,13 +84,13 @@ export class ShopCategoriesComponent {
   //   // Add more category items here
   // ]);
 
-  scrollCarousel(direction: number): void {
-    const container = this.carouselContainer.nativeElement;
-    const scrollAmount = container.offsetWidth / 1; // Adjust scroll amount based on visible items
-    container.scrollBy({
-      left: scrollAmount * direction,
-      behavior: 'smooth',
-    });
+  // scrollCarousel(direction: number): void {
+  //   const container = this.carouselContainer.nativeElement;
+  //   const scrollAmount = container.offsetWidth / 1; // Adjust scroll amount based on visible items
+  //   container.scrollBy({
+  //     left: scrollAmount * direction,
+  //     behavior: 'smooth',
+  //   });
   }
 
 
