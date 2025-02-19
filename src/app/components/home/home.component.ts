@@ -19,11 +19,12 @@ import { HomeService } from './home.service';
 import { ProductCarouselCardComponent } from './product-card-carousel/product-card-carousel.component';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
+import { VideoPlayerComponent } from '../../video-player/video-player.component';
 
 @Component({
   selector: 'app-home',
   imports: [CarouselComponent, WelcomeSectionComponent, PricingCardComponent, 
-    ShopCategoriesComponent, MultiGridCarouselComponent, ScrollAnimationDirective, ProductCarouselCardComponent],
+    ShopCategoriesComponent, MultiGridCarouselComponent, ScrollAnimationDirective, ProductCarouselCardComponent, VideoPlayerComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -86,7 +87,7 @@ export class HomeComponent {
   ];
 
   homeCarouselSlides: ItemSlideModel[] = [
-    { imageUrl: '../../../../assets/images/home-bg.webp'},
+    { imageUrl: '../../../../assets/images/carousel_image_1_new.jpeg'},
     { imageUrl: "../../../assets/images/Image 2.jpg"},
     { imageUrl: "../../../assets/images/Image 4.jpg"},
   ];
@@ -148,22 +149,26 @@ export class HomeComponent {
     {
       name: 'Norwich Loose Fit Joggers',
       price: 1200.00,
-      image: '../../../../assets/images/latest 1.webp'
+      image: '../../../../assets/images/latest 1.webp',
+      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Classic Hoodie',
       price: 2000.00,
-      image: '../../../../assets/images/latest 2.webp'
+      image: '../../../../assets/images/latest 2.webp',
+      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Corduroy Textured Shackets',
       price: 1500.00,
-      image: '../../../../assets/images/latest 3.webp'
+      image: '../../../../assets/images/latest 3.webp',
+      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
     {
       name: 'Zip-up Textured Polo Shirts ',
       price: 1200.00,
-      image: '../../../../assets/images/latest 4.webp'
+      image: '../../../../assets/images/latest 4.webp',
+      // videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
     },
   ];
 
