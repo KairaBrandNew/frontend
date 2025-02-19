@@ -40,21 +40,16 @@ export class HomeComponent {
     // Fetch trendingItems on component initialization
     this.homeService.fetchTrendingItems();
     setTimeout(() => {
-      console.log('ccc', this.homeService.productDetails)
-      this.productItems.set(this.homeService.productDetails);
+      console.log('ccc', this.homeService.dataSignal())
+      this.productItems.set(this.homeService.dataSignal());
       this.filterItems()   
     }, 2000);
   }
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
-    setTimeout(() => {
-      console.log('test1', this.productItems());
       this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
       this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
-      console.log('test', this.trendingItems());
-      console.log('topCategoryItems', this.topCategoryItems())  
-    }, 1000);
   }
 
 
