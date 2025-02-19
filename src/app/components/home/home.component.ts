@@ -45,10 +45,12 @@ export class HomeComponent {
 
   filterItems() {
     // Separate items based on isTrendingItem and isTopCategory
-    this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
-    this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
-    console.log('test', this.trendingItems());
-    console.log('topCategoryItems', this.topCategoryItems())
+    setTimeout(() => {
+      this.trendingItems.set(this.productItems().filter(item => item.isTrendingItem).slice(0, 6));
+      this.topCategoryItems.set(this.productItems().filter(item => item.isTopCategory));
+      console.log('test', this.trendingItems());
+      console.log('topCategoryItems', this.topCategoryItems())  
+    }, 1000);
   }
 
 

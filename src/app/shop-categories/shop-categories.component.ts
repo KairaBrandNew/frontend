@@ -13,8 +13,9 @@ import { Router } from '@angular/router';
 })
 export class ShopCategoriesComponent {
   @ViewChild('carouselContainer', { static: true }) carouselContainer!: ElementRef;
-  @Input() topCategories = signal<any[]>([]);
+  @Input() categories = signal<any[]>([]);
       // @Input() categories: ItemSlideModel[] = [];
+
   
 
   intervalId!: NodeJS.Timeout;
@@ -24,7 +25,7 @@ export class ShopCategoriesComponent {
   constructor(private router: Router, @Inject(PLATFORM_ID) platformId: object) { 
     this.isBrowser.set(isPlatformBrowser(platformId));  // save isPlatformBrowser in signal
     if (this.isBrowser()) {
-      // this.autoScrollCarousel()
+      this.autoScrollCarousel()
     }
   }
 
@@ -84,26 +85,26 @@ export class ShopCategoriesComponent {
   //   // Add more category items here
   // ]);
 
-  // scrollCarousel(direction: number): void {
-  //   const container = this.carouselContainer.nativeElement;
-  //   const scrollAmount = container.offsetWidth / 1; // Adjust scroll amount based on visible items
-  //   container.scrollBy({
-  //     left: scrollAmount * direction,
-  //     behavior: 'smooth',
-  //   });
-  // }
+  scrollCarousel(direction: number): void {
+    const container = this.carouselContainer.nativeElement;
+    const scrollAmount = container.offsetWidth / 1; // Adjust scroll amount based on visible items
+    container.scrollBy({
+      left: scrollAmount * direction,
+      behavior: 'smooth',
+    });
+  }
 
 
-  // autoScrollCarousel(): void {
-  //   // Auto transition effect using signals
-  //   effect(() => {
-  //     this.intervalId = setInterval(() => {
-  //       this.scrollCarousel(1);  // Move to the next slide
-  //     }, 3000);
+  autoScrollCarousel(): void {
+    // Auto transition effect using signals
+    effect(() => {
+      this.intervalId = setInterval(() => {
+        this.scrollCarousel(1);  // Move to the next slide
+      }, 3000);
 
-  //     return () => clearInterval(this.intervalId); // Cleanup when the component is destroyed
-  //   });
-  // }
+      return () => clearInterval(this.intervalId); // Cleanup when the component is destroyed
+    });
+  }
 
   // Handle manual click on carousel (optional)
   onManualCarouselClick(): void {
