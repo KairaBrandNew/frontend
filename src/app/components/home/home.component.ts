@@ -81,6 +81,7 @@ export class HomeComponent {
   homeCarouselSlides: ItemSlideModel[] = [
     { imageUrl: '../../../../assets/images/carousel_image_1_new.jpeg'},
     { imageUrl: "../../../assets/images/carousel_image_2_new.jpeg"},
+    { imageUrl: "../../../assets/images/carousel_image_3_new.jpeg"},
   ];
 
   // trendingItems: ItemSlideModel[] = [

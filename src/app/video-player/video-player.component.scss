@@ -73,7 +73,7 @@
     width: 100%; /* Make the video responsive */
     max-width: 720px; /* Restrict max size */
     aspect-ratio: 9 / 16; /* Keeps aspect ratio intact */
-    border-radius: 8px; /* Optional styling */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Ensures iframe inside deep elements resizes properly */
