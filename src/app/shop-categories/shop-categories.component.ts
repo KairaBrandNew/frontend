@@ -91,19 +91,19 @@ export class ShopCategoriesComponent {
   //     left: scrollAmount * direction,
   //     behavior: 'smooth',
   //   });
-  }
+  // }
 
 
-  autoScrollCarousel(): void {
-    // Auto transition effect using signals
-    effect(() => {
-      this.intervalId = setInterval(() => {
-        this.scrollCarousel(1);  // Move to the next slide
-      }, 3000);
+  // autoScrollCarousel(): void {
+  //   // Auto transition effect using signals
+  //   effect(() => {
+  //     this.intervalId = setInterval(() => {
+  //       this.scrollCarousel(1);  // Move to the next slide
+  //     }, 3000);
 
-      return () => clearInterval(this.intervalId); // Cleanup when the component is destroyed
-    });
-  }
+  //     return () => clearInterval(this.intervalId); // Cleanup when the component is destroyed
+  //   });
+  // }
 
   // Handle manual click on carousel (optional)
   onManualCarouselClick(): void {
