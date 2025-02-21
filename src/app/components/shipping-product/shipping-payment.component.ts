@@ -100,7 +100,7 @@ export class ShippingPaymentComponent implements OnInit {
 
   makePayment() {
     const options = {
-      key: 'rzp_test_GWgHILqvVoPEON',
+      key: 'fPB319Sl9pO3hPi2HcqWEgvo',
       amount: 3638, // ₹500 (amount in paise)
       currency: 'INR',
       name: 'Kaira',
