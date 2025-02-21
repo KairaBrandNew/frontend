@@ -37,8 +37,8 @@ export class ShippingPaymentComponent implements OnInit {
   productImage = 'https://images.unsplash.com/photo-1542291026-7eec264c27ff';
   productName = 'Premium Sport Shoes';
   quantity = 1;
-  unitPrice = 0;
-  shippingCharges = 2;
+  unitPrice = 1;
+  shippingCharges = 0;
   tax = 0;
   
   get subtotal(): number {
