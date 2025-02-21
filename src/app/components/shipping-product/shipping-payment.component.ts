@@ -37,9 +37,9 @@ export class ShippingPaymentComponent implements OnInit {
   productImage = 'https://images.unsplash.com/photo-1542291026-7eec264c27ff';
   productName = 'Premium Sport Shoes';
   quantity = 1;
-  unitPrice = 1;
-  shippingCharges = 0;
-  tax = 0;
+  unitPrice = 2999;
+  shippingCharges = 99;
+  tax = 540;
   
   get subtotal(): number {
     return this.quantity * this.unitPrice;
@@ -101,7 +101,7 @@ export class ShippingPaymentComponent implements OnInit {
   makePayment() {
     const options = {
       key: 'rzp_live_QOeEUz1FqauCz0',
-      amount: 2, // ₹500 (amount in paise)
+      amount: 200, // ₹500 (amount in paise)
       currency: 'INR',
       name: 'Kaira',
       description: 'Product Purchase',
@@ -111,9 +111,8 @@ export class ShippingPaymentComponent implements OnInit {
         alert('Payment Successful! Payment ID: ' + response.razorpay_payment_id);
       },
       prefill: {
-        name: 'John Doe',
-        email: 'johndoe@example.com',
-        contact: '9999999999'
+        name: this.shippingForm.get('fullName')?.value,
+        contact: this.shippingForm.get('phone')?.value,
       },
       theme: {
         color: '#3399cc'
